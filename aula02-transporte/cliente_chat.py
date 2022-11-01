@@ -1,5 +1,4 @@
 import socket
-import sys
 import _thread
 
 HOST = "127.0.0.1"  # Endereco IP do S
@@ -9,7 +8,7 @@ PORT = 5000  # Porta que o Servidor esta
 def receber_mensagem(udp):
     while True:
         msg, cliente = udp.recvfrom(1024)
-        msg_decoded = msg.decode('utf-8')
+        msg_decoded = msg.decode("utf-8")
         print(f"{cliente} {msg_decoded}")
 
 
@@ -22,7 +21,7 @@ def client():
     message = None
     while message != "q":
         message = input("-> ")
-        udp.sendto(message.encode('utf-8'), dest)
+        udp.sendto(message.encode("utf-8"), dest)
         # data = udp.recv(1024).decode("utf-8")
         # print("Received from server: " + data)
     udp.close()
@@ -30,4 +29,3 @@ def client():
 
 if __name__ == "__main__":
     client()
-

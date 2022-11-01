@@ -1,7 +1,7 @@
 import socket
 import sys
 
-HOST = "127.0.0.1"  # Endereco IP do S
+HOST = "100.200.100.22"  # Endereco IP do S
 PORT = 5000  # Porta que o Servidor esta
 
 
@@ -16,7 +16,7 @@ def client():
             message = input("-> ")
         else:
             message = raw_input("-> ")
-        tcp.send(message.encode('utf-8'))
+        tcp.send(message.encode("utf-8"))
         # Receiving confirmation from the server
         data = tcp.recv(1024).decode("utf-8")
         print("Received from server: " + data)
