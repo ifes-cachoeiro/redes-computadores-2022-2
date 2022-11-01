@@ -20,7 +20,7 @@ def server():
             LISTA_USUARIOS.append({"nome": mensagem[1], "conn": cliente})
         elif mensagem[0] == "enviarMensagem":
             for usuario in LISTA_USUARIOS:
-                udp.sendto(f"{mensagem[1]},{mensagem[2]}", usuario["conn"])
+                udp.sendto(f"{mensagem[1]},{mensagem[2]}".encode("utf-8"), usuario["conn"])
     udp.close()
 
 
